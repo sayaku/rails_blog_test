@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+
+  <h1>
+  <%= @post.title %>
+  </h1>
+
+
+<dl class="dl-horizontal">
+  <dt>Content:</dt>
+  <dd><%= @post.content %></dd>
+  <dt>User:</dt>
+  <dd><%= @post.user.name %></dd>
+</dl>
+
+
+<h1>Comment</h1>
+<% @post.comments.each do |com| %>
+<div>
+  <dl class="dl-horizontal">
+    <dt>title:</dt>
+    <dd><%= com.title %></dd>
+    <dt>content:</dt>
+    <dd><%= com.content %></dd>
+    <dt>User:</dt>
+    <dd><%= com.user.name %></dd>
+  </dl>
+</div>
+<% end %>
+
+
+
+<%= link_to 'New Comment', new_comment_path,class:'btn btn-success' %></br></br>
+
+<%= link_to 'Edit', edit_post_path(@post) ,class:'btn btn-warning' %> |
+<%= link_to 'Back', posts_path ,class:'btn btn-warning' %>
